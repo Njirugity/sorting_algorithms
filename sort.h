@@ -33,5 +33,13 @@ void quick_sort(int *array, size_t size);
 void swap(int *x, int *y);
 int partion(int *array, size_t size, int low, int high);
 void quick_sort_recursion(int *array, size_t size, int low, int high);
+void shell_sort(int *array, size_t size);
+void insertion_sort_list(listint_t **list);
+listint_t *swap_node(listint_t *node, listint_t **list);
+int get_max(int *array, int size);
+void counting_sort(int *array, size_t size);
+void merge_subarr(int *subarr, int *buff, size_t front, size_t mid, size_t back);
+void merge_sort_recursive(int *subarr, int *buff, size_t front, size_t back);
+void merge_sort(int *array, size_t size);
 
 #endif
