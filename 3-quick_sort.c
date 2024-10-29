@@ -14,7 +14,7 @@ void swap(int *x, int *y)
 }
 
 /**
- *partion - sorts the array in respect to the pivot index
+ *lomuto_partition - sorts the array in respect to the pivot index
  *@array: arrar to sort
  *@size: size of the array
  *@low: the lowest index of an array
@@ -22,7 +22,7 @@ void swap(int *x, int *y)
  *Return: the index of the pivot
  **/
 
-int partion(int *array, size_t size, int low, int high)
+int lomuto_partition(int *array, size_t size, int low, int high)
 {
 	int pivot_value = array[high];
 	int i = low;
@@ -42,7 +42,7 @@ int partion(int *array, size_t size, int low, int high)
 }
 
 /**
-*quick_sort_recursion -  quick sort algorithm implementation
+*lomuto_sort -  quick sort algorithm implementation
 *@array: an array to sort
 *@size: size of an array
 *@low: index of first element
@@ -50,14 +50,14 @@ int partion(int *array, size_t size, int low, int high)
 *Return: index of partioned element
 **/
 
-void quick_sort_recursion(int *array, size_t size, int low, int high)
+void lomuto_sort(int *array, size_t size, int low, int high)
 {
 	if (low < high)
 	{
-		int pivot_index = partion(array, size, low, high);
+		int pivot_index = lomuto_partition(array, size, low, high);
 
-		quick_sort_recursion(array, size, low, pivot_index - 1);
-		quick_sort_recursion(array, size, pivot_index + 1, high);
+		lomuto_sort(array, size, low, pivot_index - 1);
+		lomuto_sort(array, size, pivot_index + 1, high);
 	}
 }
 
@@ -72,5 +72,5 @@ void quick_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	quick_sort_recursion(array, size, 0, size - 1);
+	lomuto_sort(array, size, 0, size - 1);
 }
